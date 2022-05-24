@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "httpprocessor.requestbody",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.requestbody'"
+  },
+  {
+    "name": "httpprocessor.requesturl",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.requesturl'"
+  },
+  {
+    "name": "httpprocessor.requestmethod",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.requestmethod'"
+  },
+  {
+    "name": "httpprocessor.requestheaders",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.requestheaders'"
+  },
+  {
+    "name": "httpprocessor.requestusername",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.requestusername'"
+  },
+  {
+    "name": "httpprocessor.requestpassword",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.requestpassword'"
+  }
+]}

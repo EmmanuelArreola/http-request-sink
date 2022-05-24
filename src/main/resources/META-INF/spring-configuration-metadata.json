@@ -1,0 +1,54 @@
+{
+  "groups": [
+    {
+      "name": "httpprocessor",
+      "type": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "httpprocessor.requestbody",
+      "type": "java.lang.String",
+      "description": "A description for 'httpprocessor.requestbody'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.requestheaders",
+      "type": "java.lang.String",
+      "description": "A description for 'httpprocessor.requestheaders'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.requestmethod",
+      "type": "java.lang.String",
+      "description": "A description for 'httpprocessor.requestmethod'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.requestpassword",
+      "type": "java.lang.String",
+      "description": "A description for 'httpprocessor.requestpassword'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.requesturl",
+      "type": "java.lang.String",
+      "description": "A description for 'httpprocessor.requesturl'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.requestusername",
+      "type": "java.lang.String",
+      "description": "A description for 'httpprocessor.requestusername'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    }
+  ],
+  "hints": []
+}
