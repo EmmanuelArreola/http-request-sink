@@ -6,11 +6,11 @@ package com.n3xgen.http.httprequest.service;
  * 
  */
 
-public class ExceptionPath extends RuntimeException {
+public class HttpRequestException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 
-	public ExceptionPath(String message) {
+	public HttpRequestException(String message) {
 		super(message);
 	}
 

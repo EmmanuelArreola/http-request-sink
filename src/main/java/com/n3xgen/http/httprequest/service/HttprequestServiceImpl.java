@@ -43,13 +43,15 @@ public class HttprequestServiceImpl implements HttprequestService {
 			}
 			if (!httpProp.getRequestbody().equalsIgnoreCase("payload"))
 				input = httpProp.getRequestbody();
-			
+			log.info("-----------------InPUT: "+ input);
 			JSONObject json = new JSONObject(input);
+			log.info("----------------JSON: " + json.toString());
+			log.info("Popiedad Unique transaction ID: " + httpProp.getUniquetransactionid());
 			String uniqueTransID = getJsonValue(json, httpProp.getUniquetransactionid());
-			StringBuffer logMsg = new StringBuffer("Integration ID:" + httpProp.getIntegrationid());
+			StringBuffer logMsg = new StringBuffer("Integration ID: " + httpProp.getIntegrationid());
 			if (null != httpProp.getIntegrationname() && !httpProp.getIntegrationname().isEmpty()) {
 				logMsg.append(System.lineSeparator());
-				logMsg.append("Integration Name:" + httpProp.getIntegrationname());
+				logMsg.append("Integration Name: " + httpProp.getIntegrationname());
 			}
 			if (null != httpProp.getLogmsg() && !httpProp.getLogmsg().isEmpty()) {
 				logMsg.append(System.lineSeparator());
@@ -60,7 +62,7 @@ public class HttprequestServiceImpl implements HttprequestService {
 			}
 			if (null != uniqueTransID && !uniqueTransID.isEmpty()) {
 				logMsg.append(System.lineSeparator());
-				logMsg.append("Unique Transaction ID:" + uniqueTransID);
+				logMsg.append("Unique Transaction ID: " + uniqueTransID);
 			}
 			if (httpProp.getSavepayload().booleanValue()) {
 				logMsg.append(System.lineSeparator());
@@ -78,11 +80,11 @@ public class HttprequestServiceImpl implements HttprequestService {
 				outputPayload.append(output);
 			conn.disconnect();
 		} catch (MalformedURLException e) {
-			throw new ExceptionPath("Malformed URL not supported: " + e.getMessage());
+			throw new HttpRequestException("Malformed URL not supported: " + e.getMessage());
 		} catch (IOException e) {
-			throw new ExceptionPath("Can't reach URL " + e.getMessage());
+			throw new HttpRequestException("Can't reach URL: " + e.getMessage());
 		} catch (Exception e) {
-			throw new ExceptionPath("General exception: " + e.getMessage());
+			throw new HttpRequestException("General exception: " + e.getMessage());
 		}
 		log.info("Final output: " + outputPayload.toString());
 	}
