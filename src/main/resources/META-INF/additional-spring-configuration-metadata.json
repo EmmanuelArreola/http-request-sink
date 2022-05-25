@@ -28,5 +28,27 @@
     "name": "httpprocessor.requestpassword",
     "type": "java.lang.String",
     "description": "A description for 'httpprocessor.requestpassword'"
+  },
+   {
+    "name": "httpprocessor.uniquetransactionid",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.uniquetransactionid'"
+  },
+  {
+    "name": "httpprocessor.integrationid",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.integrationid'"
+  },
+  {
+    "name": "httpprocessor.integrationname",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.integrationname'"
+  },
+   {
+    "name": "httpprocessor.logmsg",
+    "type": "java.lang.String",
+    "description": "A description for 'httpprocessor.logmsg'"
   }
+  
+  
 ]}

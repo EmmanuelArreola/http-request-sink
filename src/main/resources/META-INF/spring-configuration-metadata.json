@@ -8,6 +8,24 @@
   ],
   "properties": [
     {
+      "name": "httpprocessor.integrationid",
+      "type": "java.lang.String",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.integrationname",
+      "type": "java.lang.String",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.logmsg",
+      "type": "java.lang.String",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
       "name": "httpprocessor.requestbody",
       "type": "java.lang.String",
       "description": "A description for 'httpprocessor.requestbody'",
@@ -46,6 +64,18 @@
       "name": "httpprocessor.requestusername",
       "type": "java.lang.String",
       "description": "A description for 'httpprocessor.requestusername'",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": ""
+    },
+    {
+      "name": "httpprocessor.savepayload",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
+      "defaultValue": false
+    },
+    {
+      "name": "httpprocessor.uniquetransactionid",
+      "type": "java.lang.String",
       "sourceType": "com.n3xgen.http.httprequest.bean.HttprequestProperties",
       "defaultValue": ""
     }
