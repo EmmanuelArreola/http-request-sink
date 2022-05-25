@@ -17,7 +17,6 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 public class HttprequestServiceImpl implements HttprequestService {
 
-	@Override
 	public void sendLogs(String input, HttprequestProperties httpProp) {
 		StringBuffer outputPayload = new StringBuffer();
 		try {
@@ -37,15 +36,36 @@ public class HttprequestServiceImpl implements HttprequestService {
 				log.info(httpProp.getRequestheaders());
 				String[] reqProps = httpProp.getRequestheaders().split(",");
 				for (int i = 0; i < reqProps.length; i++) {
-					log.info("" + i + "--->" + i);
+					log.info("" + i + " ---> " + i);
 					String[] props = reqProps[i].split(":");
 					conn.setRequestProperty(props[0], props[1]);
 				}
 			}
-			if (!httpProp.getRequestbody().equalsIgnoreCase("payload")) {
+			if (!httpProp.getRequestbody().equalsIgnoreCase("payload"))
 				input = httpProp.getRequestbody();
-			}
+			
 			JSONObject json = new JSONObject(input);
+			String uniqueTransID = getJsonValue(json, httpProp.getUniquetransactionid());
+			StringBuffer logMsg = new StringBuffer("Integration ID:" + httpProp.getIntegrationid());
+			if (null != httpProp.getIntegrationname() && !httpProp.getIntegrationname().isEmpty()) {
+				logMsg.append(System.lineSeparator());
+				logMsg.append("Integration Name:" + httpProp.getIntegrationname());
+			}
+			if (null != httpProp.getLogmsg() && !httpProp.getLogmsg().isEmpty()) {
+				logMsg.append(System.lineSeparator());
+				logMsg.append(httpProp.getLogmsg());
+			} else {
+				logMsg.append(System.lineSeparator());
+				logMsg.append("This is the default message");
+			}
+			if (null != uniqueTransID && !uniqueTransID.isEmpty()) {
+				logMsg.append(System.lineSeparator());
+				logMsg.append("Unique Transaction ID:" + uniqueTransID);
+			}
+			if (httpProp.getSavepayload().booleanValue()) {
+				logMsg.append(System.lineSeparator());
+				logMsg.append(json);
+			}
 			OutputStream os = conn.getOutputStream();
 			os.write(json.toString().getBytes());
 			os.flush();
@@ -54,20 +74,25 @@ public class HttprequestServiceImpl implements HttprequestService {
 			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 			log.info("Output from Server .... \n");
 			String output;
-
 			while ((output = br.readLine()) != null)
 				outputPayload.append(output);
 			conn.disconnect();
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			throw new ExceptionPath("Malformed URL not supported: " + e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new ExceptionPath("Can't reach URL " + e.getMessage());
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new ExceptionPath("General exception: " + e.getMessage());
 		}
-
-		log.info("Final output" + outputPayload.toString());
-
+		log.info("Final output: " + outputPayload.toString());
 	}
 
+	public String getJsonValue(JSONObject json, String path) {
+		String value = "";
+		if (null != path && !path.isEmpty() && null != json) {
+			Object obj = json.get(path);
+			value = obj.toString();
+		}
+		return value;
+	}
 }
