@@ -13,7 +13,7 @@
 	<name>http-request-sink</name>
 	<description>A http-reques as a sink for SCDF to use as a connector to elastic</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.3-SNAPSHOT</spring-cloud.version>
 	</properties>
 	<dependencies>
@@ -117,6 +117,9 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<image>
+						<name>jmalvaez/http-request-sink:0.0.1-SNAPSHOT</name>
+					</image>
 				</configuration>
 			</plugin>
 		</plugins>
